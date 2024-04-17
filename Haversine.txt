@@ -1,0 +1,13 @@
+d = 2R × sin⁻¹(√[sin²((θ₂ - θ₁)/2) + cosθ₁ × cosθ₂ × sin²((φ₂ - φ₁)/2)])
+
+where:
+
+(θ₁, φ₁) – First Point Latitude & Longitude Coordinates;
+(θ₂, φ₂) – Second Point Latitude & Longitude Coordinates;
+R – Earth's Radius (R = 6371 KM); And
+d – Distance b/w them along Earth's surface.
+
+Converted for Excel:
+
+= 2R * ASIN (SQRT (SIN ((θ₂ - θ₁) / 2) ^ 2 + COS (θ₁) * COS (θ₂) * SIN ((φ₂ - φ₁) / 2) ^ 2)) {Coords in Degrees, Don't Use}
+= R * ACOS ((SIN (RADIANS (θ₁)) * SIN (RADIANS (θ₂))) + (COS (RADIANS (θ₁)) * COS (RADIANS (θ₂))) * (COS (RADIANS (φ₂) - RADIANS (φ₁))))

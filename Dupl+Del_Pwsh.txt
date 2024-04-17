@@ -1,0 +1,11 @@
+LEPIM 47
+
+ls "[directory you want to search]" -recurse | get-filehash | group -property hash | where { $_.count -gt 1 } | % { $_.group } | Out-File -FilePath "[location where you want to export the result]"
+
+ls "[directory you want to search]" -recurse | get-filehash | group -property hash | where { $_.count -gt 1 } | % { $_.group | select -skip 1 } | del
+
+ls "C:\Users\Nilay.Baranwal\Downloads\test" -recurse | get-filehash | group -property hash | where { $_.count -gt 1 } | % { $_.group } | Out-File -FilePath "C:\Users\Nilay.Baranwal\Desktop\result.txt"
+
+Get-ChildItem -Path $(Get-Location) -File -Include [filename1*.ext1*], [filename2*.ext2*], [...], desktop.ini -Recurse | Remove-Item -Force -Verbose
+
+Get-ChildItem -Path $(Get-Location) -File -Include .trashed*.*, +91*.*, 91*.*, Unknown*.*, _unexpected, _F74, desktop.ini -Recurse | Remove-Item -Force -Verbose
